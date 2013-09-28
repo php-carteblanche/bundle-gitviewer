@@ -1,4 +1,6 @@
-bundle-gitviewer
-================
+CarteBlanche bundle - GIT Viewer
+================================
 
-A GIT repository viewer bundle for CarteBlanche
+A bundle to build a GIT repository such as GitHub repo browsing.
+
+This package is a bundle for the [CarteBlanche framework](https://github.com/php-carteblanche/carteblanche).
