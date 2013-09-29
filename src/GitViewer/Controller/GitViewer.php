@@ -11,7 +11,7 @@ namespace GitViewer\Controller;
 
 use \CarteBlanche\CarteBlanche;
 use \CarteBlanche\App\Container;
-use \CarteBlanche\App\Abstracts\AbstractController;
+use \CarteBlanche\Abstracts\AbstractController;
 use \GitApi\GitApi;
 use \GitApi\Repository;
 
