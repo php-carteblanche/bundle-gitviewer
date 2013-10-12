@@ -1,10 +1,9 @@
 {
     "name": "carte-blanche/bundle-gitviewer",
     "type": "carte-blanche-bundle",
-    "description": "A bundle to build a GIT repository view such as GitHub repo browsing.",
+    "description": "A bundle to build a GIT repository browsing",
     "keywords": [ "carte blanche", "bundles" ],
     "homepage": "http://github.com/php-carteblanche/bundle-gitviewer",
-    "version": "0.0.1-dev",
     "license": "Apache-2.0",
     "authors": [{
         "name": "Les Ateliers Pierrot & contributors",
@@ -12,14 +11,13 @@
         "homepage": "http://www.ateliers-pierrot.fr/"
     }],
     "require": {
-        "php": ">=5.3.0",
         "atelierspierrot/patterns": "dev-master",
         "atelierspierrot/library": "dev-master",
         "atelierspierrot/git-api": "dev-master",
-        "carte-blanche/core": "dev-master"
+        "carte-blanche/core": "~0.1"
     },
     "require-dev": {
-        "carte-blanche/core": "dev-wip"
+        "carte-blanche/core": "~0.1@dev"
     },
     "autoload": { 
         "psr-0": { "GitViewer": "src" },
@@ -29,6 +27,9 @@
         "type": "composer", "url": "http://packagist.ateliers-pierrot.fr/"
     }],
     "extra": {
-        "views": "src/GitViewer/views"
+        "views": "src/GitViewer/views",
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
     }
 }
