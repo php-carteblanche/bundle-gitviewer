@@ -9,7 +9,7 @@ if (!isset($dir)) $dir = '';
 
 ?>
 
-<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'breadcrumb.htm',array('git_path'=>$git_path,'path'=>$dir)); ?>
+<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'breadcrumb',array('git_path'=>$git_path,'path'=>$dir)); ?>
 <br class="clear" />
 
 <table class="gitapi files_tree">

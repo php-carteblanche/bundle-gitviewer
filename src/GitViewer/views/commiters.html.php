@@ -10,7 +10,7 @@ if (empty($commiter_name)) $commiter_name = false;
 
 <h2>Commiters of the GIT repository <em><?php echo basename($git_path); ?></em></h2>
 
-<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'menu.htm',array('current'=>'commiters')); ?>
+<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'menu',array('current'=>'commiters')); ?>
 <br class="clear" />
 <?php if (!empty($commiter_name)) : ?>
 <p>Activity of commiter <a href="mailto:<?php
@@ -18,7 +18,7 @@ if (empty($commiter_name)) $commiter_name = false;
 ?>"><?php echo $git_commiters[$commiter_name]['name']; ?></a> : <?php echo $git_commiters[$commiter_name]['commits']; ?> commits.</p>
 <?php
 		echo view(
-			\GitViewer\Controller\GitViewer::$views_dir.'commits_tree.htm',
+			\GitViewer\Controller\GitViewer::$views_dir.'commits_tree',
 			array(
 				'git_path'=>$git_path,
 				'git_history'=>$git_history
@@ -28,7 +28,7 @@ if (empty($commiter_name)) $commiter_name = false;
 <?php else : ?>
 <?php
 		echo view(
-			\GitViewer\Controller\GitViewer::$views_dir.'commiters_tree.htm',
+			\GitViewer\Controller\GitViewer::$views_dir.'commiters_tree',
 			array(
 				'git_path'=>$git_path,
 				'git_history'=>$git_history,

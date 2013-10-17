@@ -11,7 +11,7 @@ if (!isset($is_subdir)) $is_subdir = false;
 
 <h2>Files tree of the GIT repository <em><?php echo basename($git_path); ?></em></h2>
 
-<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'menu.htm',array('current'=>'tree')); ?>
+<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'menu',array('current'=>'tree')); ?>
 <br class="clear" />
 
 <p class="gitapi last_commit">
@@ -50,7 +50,7 @@ if (!isset($is_subdir)) $is_subdir = false;
 <br class="clear" />
 <?php
 		echo view(
-			\GitViewer\Controller\GitViewer::$views_dir.'files_tree.htm',
+			\GitViewer\Controller\GitViewer::$views_dir.'files_tree',
 			array(
 				'git_path'=>$git_path,
 				'git_history'=>$git_history,
