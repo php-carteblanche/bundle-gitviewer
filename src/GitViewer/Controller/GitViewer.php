@@ -70,7 +70,7 @@ class GitViewer extends AbstractController
             }
         }
 
-		return array(self::$views_dir.'tree', array(
+		return array(self::$views_dir.'tree.htm', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
@@ -101,7 +101,7 @@ class GitViewer extends AbstractController
             $last = $history[$infos[$file_path]];
         }
 
-		return array(self::$views_dir.'raw', array(
+		return array(self::$views_dir.'raw.htm', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'file_raw'=>$raw,
@@ -127,7 +127,7 @@ class GitViewer extends AbstractController
             }
         }
 
-		return array(self::$views_dir.'history', array(
+		return array(self::$views_dir.'history.htm', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
@@ -145,7 +145,7 @@ class GitViewer extends AbstractController
         $last = $_git->getLastCommitInfos();
         $branches = $_git->getBranchesList();
 
-		return array(self::$views_dir.'branches', array(
+		return array(self::$views_dir.'branches.htm', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
@@ -163,7 +163,7 @@ class GitViewer extends AbstractController
         $last = $_git->getLastCommitInfos();
         $tags = $_git->getTagsList();
 
-		return array(self::$views_dir.'tags', array(
+		return array(self::$views_dir.'tags.htm', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
@@ -187,7 +187,7 @@ class GitViewer extends AbstractController
             }
         }
 
-		return array(self::$views_dir.'commiters', array(
+		return array(self::$views_dir.'commiters.htm', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
@@ -202,7 +202,7 @@ class GitViewer extends AbstractController
         $_git = GitApi::open($this->_getRepositoryPath());
         $commit = $_git->getCommitInfos($hash);
 
-		return array(self::$views_dir.'commit', array(
+		return array(self::$views_dir.'commit.htm', array(
 			'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_commit'=>$commit,
