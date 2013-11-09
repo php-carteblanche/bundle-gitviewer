@@ -7,7 +7,7 @@ if (empty($git_commit)) $git_commit = array();
 
 <h2>Diff of commit <em><?php echo $git_commit['commit-abbrev']; ?></em> on the GIT repository <em><?php echo basename($git_path); ?></em></h2>
 
-<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'menu.htm',array('current'=>'history')); ?>
+<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'menu',array('current'=>'history')); ?>
 <br class="clear" />
 
 <div>
@@ -42,7 +42,7 @@ if (empty($git_commit)) $git_commit = array();
 
 <?php
 		echo view(
-			\GitViewer\Controller\GitViewer::$views_dir.'commit_diff.htm',
+			\GitViewer\Controller\GitViewer::$views_dir.'commit_diff',
 			array(
 				'git_path'=>$git_path,
 				'git_commit'=>$git_commit

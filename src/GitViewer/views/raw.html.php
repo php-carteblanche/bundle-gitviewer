@@ -11,7 +11,7 @@ if (!isset($img_data)) $img_data = '';
 
 <h2>Raw content of file <em><?php echo $file_path; ?></em> from the GIT repository <em><?php echo basename($git_path); ?></em></h2>
 
-<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'menu.htm',array('current'=>'tree')); ?>
+<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'menu',array('current'=>'tree')); ?>
 <br class="clear" />
 
 <p class="gitapi last_commit">
@@ -29,7 +29,7 @@ if (!isset($img_data)) $img_data = '';
 
 <br class="clear" />
 
-<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'breadcrumb.htm',array('git_path'=>$git_path,'path'=>dirname($file_path))); ?>
+<?php echo view(\GitViewer\Controller\GitViewer::$views_dir.'breadcrumb',array('git_path'=>$git_path,'path'=>dirname($file_path))); ?>
 <br class="clear" />
 
 <?php if (0!==$is_img) : ?>
