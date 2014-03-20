@@ -1,10 +1,13 @@
 <?php
 /**
- * CarteBlanche - PHP framework package - Git API bundle
- * Copyleft (c) 2013 Pierre Cassat and contributors
- * <www.ateliers-pierrot.fr> - <contact@ateliers-pierrot.fr>
- * License Apache-2.0 <http://www.apache.org/licenses/LICENSE-2.0.html>
- * Sources <http://github.com/php-carteblanche/carteblanche>
+ * This file is part of the CarteBlanche PHP framework
+ * (c) Pierre Cassat and contributors
+ * 
+ * Sources <http://github.com/php-carteblanche/bundle-gitviewer>
+ *
+ * License Apache-2.0
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace GitViewer\Controller;
@@ -16,7 +19,7 @@ use \GitApi\GitApi;
 use \GitApi\Repository;
 
 /**
- * @author 		Piero Wbmstr <piero.wbmstr@gmail.com>
+ * @author 		Piero Wbmstr <piwi@ateliers-pierrot.fr>
  */
 class GitViewer extends AbstractController
 {
@@ -220,14 +223,14 @@ class GitViewer extends AbstractController
     public function exportAction($format = 'tar')
     {
         $_git = GitApi::open($this->_getRepositoryPath());
-        $tarball = $_git->buildTarball(CarteBlanche::getPath('tmp_path'), 'latest', $format);
+        $tarball = $_git->buildTarball(CarteBlanche::getFullPath('web_tmp_dir'), 'latest', $format);
 		$this->getContainer()->get('response')->download( $tarball, $format==='tar' ? 'application/tar' : 'application/zip' );
     }
 
     public function exportTagAction($tagname, $format = 'tar')
     {
         $_git = GitApi::open($this->_getRepositoryPath());
-        $tarball = $_git->buildTagTarball($tagname, CarteBlanche::getPath('tmp_path'), 'auto', $format);
+        $tarball = $_git->buildTagTarball($tagname, CarteBlanche::getFullPath('web_tmp_dir'), 'auto', $format);
 		$this->getContainer()->get('response')->download( $tarball, $format==='tar' ? 'application/tar' : 'application/zip' );
     }
 
