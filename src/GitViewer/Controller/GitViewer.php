@@ -19,59 +19,59 @@ use \GitApi\GitApi;
 use \GitApi\Repository;
 
 /**
- * @author 		Piero Wbmstr <piwi@ateliers-pierrot.fr>
+ * @author  Piero Wbmstr <me@e-piwi.fr>
  */
 class GitViewer extends AbstractController
 {
 
-	/**
-	 * The GIT repository path for tests
-	 */
-	var $test_repository_path = '/Users/pierrecassat/Sites/GitHub_projects/carte-blanche';
+    /**
+     * The GIT repository path for tests
+     */
+    var $test_repository_path = '/Users/pierrecassat/Sites/GitHub_projects/carte-blanche';
 
-	/**
-	 * The GIT repository path
-	 */
-	var $repository_path;
+    /**
+     * The GIT repository path
+     */
+    var $repository_path;
 
-	/**
-	 * The directory where to search the views files
-	 */
-	static $views_dir = 'GitViewer/views/';
+    /**
+     * The directory where to search the views files
+     */
+    static $views_dir = 'GitViewer/views/';
 
     protected function _getRepositoryPath()
     {
         if (empty($this->repository_path)) {
-    		$_git_path = $this->getContainer()->get('request')->getUrlArg('git_path');
+            $_git_path = $this->getContainer()->get('request')->getUrlArg('git_path');
 
-	    	if (empty($_git_path)) {
-	    	    $_git_path = $this->getContainer()->get('session')->get('gitviewer_path');
-	    	}
-	    	
-	    	$cfg = CarteBlanche::getContainer()->get('config')
+            if (empty($_git_path)) {
+                $_git_path = $this->getContainer()->get('session')->get('gitviewer_path');
+            }
+
+            $cfg = CarteBlanche::getContainer()->get('config')
                 ->get('repository');
-	    	if (empty($_git_path) && !empty($cfg)) {
-	    	    $_git_path = isset($cfg['default']) ? $cfg['default'] : null;
-	    	}
+            if (empty($_git_path) && !empty($cfg)) {
+                $_git_path = isset($cfg['default']) ? $cfg['default'] : null;
+            }
 
-	    	if (empty($_git_path)) $_git_path = $this->test_repository_path;
+            if (empty($_git_path)) $_git_path = $this->test_repository_path;
             $this->repository_path = $_git_path;
         }
         return $this->repository_path;
     }
 
-	/**
-	 */
-	public function indexAction()
-	{
+    /**
+     */
+    public function indexAction()
+    {
         return $this->treeAction();
-	}
+    }
 
-	public function treeAction($dir = null)
-	{
+    public function treeAction($dir = null)
+    {
         $_git = GitApi::open($this->_getRepositoryPath());
         $history = $_git->getCommitsHistory();
-        $infos = $_git->getFilesInfo();        
+        $infos = $_git->getFilesInfo();
         $last = $_git->getLastCommitInfos();
 
         $tree = $_git->getTree('HEAD', $dir);
@@ -81,7 +81,7 @@ class GitViewer extends AbstractController
             }
         }
 
-		return array(self::$views_dir.'tree', array(
+        return array(self::$views_dir.'tree', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
@@ -90,15 +90,15 @@ class GitViewer extends AbstractController
             'git_tree'=>$tree,
             'dir'=>$dir,
             'is_subdir'=>!empty($dir),
-		));
-	}
+        ));
+    }
 
-	public function rawAction($object = null)
-	{
+    public function rawAction($object = null)
+    {
         $_git = GitApi::open($this->_getRepositoryPath());
         $history = $_git->getCommitsHistory();
-        $infos = $_git->getFilesInfo();        
-        $tree = $_git->getRecursiveTree();        
+        $infos = $_git->getFilesInfo();
+        $tree = $_git->getRecursiveTree();
 
         $raw = $_git->getRaw($object);
 
@@ -112,7 +112,7 @@ class GitViewer extends AbstractController
             $last = $history[$infos[$file_path]];
         }
 
-		return array(self::$views_dir.'raw', array(
+        return array(self::$views_dir.'raw', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'file_raw'=>$raw,
@@ -121,14 +121,14 @@ class GitViewer extends AbstractController
             'file_path'=>$file_path,
             'git_history'=>$history,
             'git_last'=>$last
-		));
-	}
+        ));
+    }
 
-	public function historyAction()
-	{
+    public function historyAction()
+    {
         $_git = GitApi::open($this->_getRepositoryPath());
         $history = $_git->getCommitsHistory();
-        $infos = $_git->getFilesInfo();        
+        $infos = $_git->getFilesInfo();
         $tree = $_git->getTree();
         $last = $_git->getLastCommitInfos();
 
@@ -138,57 +138,57 @@ class GitViewer extends AbstractController
             }
         }
 
-		return array(self::$views_dir.'history', array(
+        return array(self::$views_dir.'history', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
             'git_filesinfos'=>$infos,
             'git_last'=>$last,
             'git_tree'=>$tree
-		));
-	}
+        ));
+    }
 
-	public function branchesAction()
-	{
+    public function branchesAction()
+    {
         $_git = GitApi::open($this->_getRepositoryPath());
         $history = $_git->getCommitsHistory();
-        $infos = $_git->getFilesInfo();        
+        $infos = $_git->getFilesInfo();
         $last = $_git->getLastCommitInfos();
         $branches = $_git->getBranchesList();
 
-		return array(self::$views_dir.'branches', array(
+        return array(self::$views_dir.'branches', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
             'git_filesinfos'=>$infos,
             'git_last'=>$last,
             'git_branches'=>$branches
-		));
-	}
+        ));
+    }
 
-	public function tagsAction()
-	{
+    public function tagsAction()
+    {
         $_git = GitApi::open($this->_getRepositoryPath());
         $history = $_git->getCommitsHistory();
-        $infos = $_git->getFilesInfo();        
+        $infos = $_git->getFilesInfo();
         $last = $_git->getLastCommitInfos();
         $tags = $_git->getTagsList();
 
-		return array(self::$views_dir.'tags', array(
+        return array(self::$views_dir.'tags', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
             'git_filesinfos'=>$infos,
             'git_last'=>$last,
             'git_tags'=>$tags
-		));
-	}
+        ));
+    }
 
-	public function commiterAction($name = null)
-	{
+    public function commiterAction($name = null)
+    {
         $_git = GitApi::open($this->_getRepositoryPath());
         $history = $_git->getCommitsHistory();
-        $infos = $_git->getFilesInfo();        
+        $infos = $_git->getFilesInfo();
         $commiters = $_git->getCommitersList();
 
         if (!empty($name)) {
@@ -198,40 +198,40 @@ class GitViewer extends AbstractController
             }
         }
 
-		return array(self::$views_dir.'commiters', array(
+        return array(self::$views_dir.'commiters', array(
             'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_history'=>$history,
             'git_filesinfos'=>$infos,
             'git_commiters'=>$commiters,
             'commiter_name'=>$name
-		));
-	}
+        ));
+    }
 
-	public function commitAction($hash)
-	{
+    public function commitAction($hash)
+    {
         $_git = GitApi::open($this->_getRepositoryPath());
         $commit = $_git->getCommitInfos($hash);
 
-		return array(self::$views_dir.'commit', array(
-			'title'=>'GIT Viewer',
+        return array(self::$views_dir.'commit', array(
+            'title'=>'GIT Viewer',
             'git_path'=>$_git->getRepositoryPath(),
             'git_commit'=>$commit,
-		));
-	}
+        ));
+    }
 
     public function exportAction($format = 'tar')
     {
         $_git = GitApi::open($this->_getRepositoryPath());
         $tarball = $_git->buildTarball(CarteBlanche::getFullPath('web_tmp_dir'), 'latest', $format);
-		$this->getContainer()->get('response')->download( $tarball, $format==='tar' ? 'application/tar' : 'application/zip' );
+        $this->getContainer()->get('response')->download( $tarball, $format==='tar' ? 'application/tar' : 'application/zip' );
     }
 
     public function exportTagAction($tagname, $format = 'tar')
     {
         $_git = GitApi::open($this->_getRepositoryPath());
         $tarball = $_git->buildTagTarball($tagname, CarteBlanche::getFullPath('web_tmp_dir'), 'auto', $format);
-		$this->getContainer()->get('response')->download( $tarball, $format==='tar' ? 'application/tar' : 'application/zip' );
+        $this->getContainer()->get('response')->download( $tarball, $format==='tar' ? 'application/tar' : 'application/zip' );
     }
 
 }
