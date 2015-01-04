@@ -1,0 +1,68 @@
+index;fr;en
+;Visualiseur GIT;GIT Viewer
+;Branche;Branch
+;Dernier commit;Last commit
+;Branches du dépôt GIT <em>%url%</em>;Branches of the GIT repository <em>%url%</em>
+;VIEUX;OLD
+;NOUVEAU;NEW
+;Diff du commit <em>%hash%</em> sur le dépôt GIT <em>%url%</em>;Diff of commit <em>%hash%</em> on the GIT repository <em>%url%</em>
+;commit parent;parent commit
+;Commit <strong>%hash%</strong>;Commit <strong>%hash%</strong>
+;Créé le %date%;Authored at %date%
+;par;by
+;Changements :;Changes:
+;%nb% nouveau fichier;%nb% new file
+;%nb% nouveaux fichiers;%nb% new files
+;%nb% fichier supprimé;%nb% file deleted
+;%nb% fichiers supprimés;%nb% files deleted
+;%nb% fichier renommé;%nb% file renamed
+;%nb% fichiers renommés;%nb% files renamed
+;%nb% fichier copié;%nb% file copied
+;%nb% fichiers copiés;%nb% files copied
+;%nb% fichier mis à jour;%nb% file updated
+;%nb% fichiers mis à jour;%nb% files updated
+;%nb% type de fichier modifié;%nb% file type changed
+;%nb% types de fichier modifiés;%nb% files types changed
+;Nom;Name
+;Email;Email
+;Nombre de commits;Number of commits
+;Voir l'activité de cet auteur;See this commiter activity
+;Activité de l'auteur;Activity of commiter
+;Auteurs du dépôt GIT <em>%url%</em>;Commiters of the GIT repository <em>%url%</em>
+;Réf.;Ref
+;Date;Date
+;Auteur;Author
+;Description;Commit info
+;Arbre;Tree
+;Taille du fichier;File size
+;Voir le répertoire parent;See parent directory
+;Voir le contenu du répertoire;See directory contents
+;Voir le contenu brut du fichier;See raw content of this file
+;Historique du dépôt GIT <em>%url%</em>;History of the GIT repository <em>%url%</em>
+;Vue d'ensemble du dépôt GIT <em>%url%</em>;Overview of the GIT repository <em>%url%</em>
+;Voir les contenus de ce dépôt;See this repository contents
+;Voir l'historique de ce dépôt;See this repository history
+;Voir les auteurs du dépôt;See this repository commiters
+;Voir les tags du dépôt;See this repository tags
+;Dernier commit sur ce dépôt le;Last commit on this repository on
+;Voir les branches de ce dépôt;See this repository branches list
+;Arbre des fichiers;Files tree
+;Historique;History
+;Branches;Branches
+;Tags;Tags
+;Auteurs;Commiters
+;Contenu du fichier <em>%filename%</em> du dépôt GIT <em>%url%</em>;Raw content of file <em>%filename%</em> from the GIT repository <em>%url%</em>
+;Dernier commit sur ce fichier le;Last commit on this file on
+;Message;Message
+;Téléchargement;Download
+;format ZIP;zip format
+;format TAR;tar format
+;Télécharger une archive ZIP de ce tag;Download a zip of this tag
+;Télécharger une archive TAR de ce tag;Download a tarball of this tag
+;Tags du dépôt GIT <em>%url%</em>;Tags of the GIT repository <em>%url%</em>
+;Arbre des fichiers du dépôt GIT <em>%url%</em>;Files tree of the GIT repository <em>%url%</em>
+;Nombre de commits dans cette branche;Number of commits for this branch
+;Téléchargements :;Downloads :
+;Télécharger une archive ZIP de ce dépôt;Download a zip of this repository
+;Télécharger une archive TAR de ce dépôt;Download a tarball of this repository
+;Tag;Tag

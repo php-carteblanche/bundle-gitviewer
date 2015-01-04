@@ -12,22 +12,19 @@
 namespace GitViewer;
 
 use \CarteBlanche\CarteBlanche;
-
-use \Library\Helper\Directory as DirectoryHelper;
+use \CarteBlanche\Abstracts\AbstractBundle;
 
 class GitViewerBundle
+    extends AbstractBundle
 {
 
-    protected static $bundle_config_file = 'gitviewer_config.ini';
-
-    public function __construct()
+    /**
+     * @param   array $options
+     * @return  mixed
+     */
+    public function init(array $options = array())
     {
-        $cfgfile = \CarteBlanche\App\Locator::locateConfig(self::$bundle_config_file);
-        if (file_exists($cfgfile)) {
-            $cfg = CarteBlanche::getContainer()->get('config')
-                ->load($cfgfile, true, 'git_viewer')
-                ->get('repository');
-        }
+        parent::init($options);
     }
 
 }
