@@ -24,11 +24,6 @@ class GitViewer extends AbstractController
 {
 
     /**
-     * The GIT repository path for tests
-     */
-    var $test_repository_path = '/Users/pierrecassat/Sites/GitHub_projects/carte-blanche';
-
-    /**
      * The GIT repository path
      */
     var $repository_path;
@@ -53,7 +48,11 @@ class GitViewer extends AbstractController
                 $_git_path = isset($cfg['default']) ? $cfg['default'] : null;
             }
 
-            if (empty($_git_path)) $_git_path = $this->test_repository_path;
+            if (empty($_git_path)) {
+                throw new \CarteBlanche\Exception\UnexpectedValueException(
+                    'No repository path to analyze!'
+                );
+            }
             $this->repository_path = $_git_path;
         }
         return $this->repository_path;
